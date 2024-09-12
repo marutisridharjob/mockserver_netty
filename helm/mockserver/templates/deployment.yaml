@@ -45,14 +45,16 @@ spec:
               containerPort: {{ .Values.app.serverPort }}
               protocol: TCP
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: /status
               port: serviceport
             initialDelaySeconds: 2
             periodSeconds: 2
             successThreshold: 1
             failureThreshold: 10
           livenessProbe:
-            tcpSocket:
+            httpGet:
+              path: /status
               port: serviceport
             initialDelaySeconds: 10
             periodSeconds: 5
