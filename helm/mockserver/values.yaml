@@ -26,8 +26,6 @@ service:
   type: NodePort
   port: 1080
   nodePort: ""
-  test:
-    image: radial/busyboxplus:curl
 
 ingress:
   enabled: false
